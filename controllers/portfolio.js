@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const Portfolio = require('../models/portfolio');
+const portfolios = require('../models/samPortfolio');
 
-router.get('/', (req, res) => {
-	res.render('index', {});
-})
+router.route('/')
+	.get((req, res) => {
+		res.render('index', { portfolio: portfolios });
+	})
 
 module.exports = router;

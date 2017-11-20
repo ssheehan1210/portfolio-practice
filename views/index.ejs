@@ -1,16 +1,87 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title></title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/styles/style.css">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Sam Sheehan - Full-Stack Web Developer</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
-	<h1>Main Page</h1>
+	<div class="container-fluid">
+		<div class="row no-gutters" id="portfolio-header-row">
+			<div class="col-1">
+				
+			</div>
+			<div class="col-10">
+				<h1>Dennis "Sam" Sheehan</h1>
+				<% portfolio.forEach((item, i) => { %>
+					<h2><%=item.fullName%></h2>
+					<% if (item.currentJob === true) { %>
+						<h5><%= item.latestJob.role %></h5>
+					<% } %>
+				<% }) %>
+			</div>
+			<div class="col-1">
+				
+			</div>
+		</div>
+		<div class="row no-gutters">
+			<div class="col-12">
+				<p id="brand-statement1">I am absolutely obsessed and passionate about the digial space and am particularly interested in the development and advancement of interactive and client-facing technologies.</p>
+
+				<p id="brand-statement2">I worked as a sourcing specialist at a digital consultancy firm that worked with various Cloud-based technologies and have a Master's degree in Business Psychology. However, I realized that being a recruiter wasn't something I could truly feel passionate about, so I decided to change my career towards becoming a web and software developer in the digital space, which is something I've been interested in throughout my entire life.</p>
+
+				<p id="brand-statement3">I'm becoming very experienced in web development technologies like HTML, CSS, Bootstrap and JavaScript and I'm really excited to learn more over time. I want to be able to integrate my knowledge of social and business psychology to create and improve digital technologies in ways that are both meaningful and memorable.</p><br>
+			</div>
+		</div>
+		<div class="row no-gutters">
+			<div class="col-12">
+				<h3>Skills:</h3>
+				<ul>
+					<strong>Technical Languages:</strong>
+					<% portfolio.forEach((item, i) => { %>
+						<% for (a = 0; a < item.technicalLanguages.length; a++) { %>
+							<li><%= item.technicalLanguages[a] %></li>
+						<% } %>
+					<% }) %>
+					<br>
+					<strong>Technical Skills:</strong>
+					<% portfolio.forEach((item, i) => { %>
+						<% for (b = 0; b < item.webDevelopmentSkills.length; b++) { %>
+							<li><%= item.webDevelopmentSkills[b] %></li>
+						<% } %>
+					<% }) %>
+					<br>
+				</ul>
+			</div>
+		</div>
+		<div class="row no-gutters">
+			<div class="col-12">
+				<h3>Projects:</h3>
+				<ul>
+					<% portfolio.forEach((item, i) => { %>
+						<% for (c = 0; c < item.projects.length; c++) { %>
+							<li>
+								<%= item.projects[c].projectName %><br>
+								<%= item.projects[c].summary %><br>
+								<p>Technologies Used:</p>
+								<% for (d = 0; d < item.projects[c].technologies.length; d++) { %>
+									<span><%= item.projects[c].technologies[d] %></span><br>
+								<% } %>
+							</li>
+							<br>
+						<% } %>
+					<% }) %>
+				</ul>
+			</div>
+		</div>
+	</div>
 
 
-
+	<script src="/javascripts/app.js"></script>
 </body>
 </html>
