@@ -4,84 +4,157 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Sam Sheehan - Full-Stack Web Developer</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Use these lines when not using MDB -->
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"> -->
+	<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script> -->
+	<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script> -->
+
+	<!-- MDB Lines (remove the Bootstrap and jQuery related lines above when using these) -->
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- Bootstrap core CSS -->
+	<link href="/styles/bootstrap.min.css" rel="stylesheet">
+	<!-- Material Design Bootstrap -->
+	<link href="/styles/mdb.min.css" rel="stylesheet">
+	<!-- Your custom styles (optional) -->
 	<link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
 	<div class="container-fluid">
-		<div class="row no-gutters" id="portfolio-header-row">
-			<div class="col-1">
+		<div class="row no-gutters justify-content-center" id="portfolio-header-row">
+			<div class="col-sm">
 				
 			</div>
-			<div class="col-10">
+			<div class="col-8" id="header-name-column">
 				<h1>Dennis "Sam" Sheehan</h1>
 				<% portfolio.forEach((item, i) => { %>
-					<h2><%=item.fullName%></h2>
+					<h5><%=item.fullName%></h5>
 					<% if (item.currentJob === true) { %>
 						<h5><%= item.latestJob.role %></h5>
 					<% } %>
 				<% }) %>
 			</div>
-			<div class="col-1">
+			<div class="col-sm">
 				
 			</div>
 		</div>
-		<div class="row no-gutters">
-			<div class="col-12">
+		<div class="row no-gutters justify-content-center" id="portfolio-statement-row">
+			<div class="col-10">
+				<h3>About Me</h3>
+			</div>
+			<div class="w-100"></div>
+			<div class="col-10">
 				<p id="brand-statement1">I am absolutely obsessed and passionate about the digial space and am particularly interested in the development and advancement of interactive and client-facing technologies.</p>
 
 				<p id="brand-statement2">I worked as a sourcing specialist at a digital consultancy firm that worked with various Cloud-based technologies and have a Master's degree in Business Psychology. However, I realized that being a recruiter wasn't something I could truly feel passionate about, so I decided to change my career towards becoming a web and software developer in the digital space, which is something I've been interested in throughout my entire life.</p>
 
-				<p id="brand-statement3">I'm becoming very experienced in web development technologies like HTML, CSS, Bootstrap and JavaScript and I'm really excited to learn more over time. I want to be able to integrate my knowledge of social and business psychology to create and improve digital technologies in ways that are both meaningful and memorable.</p><br>
+				<p id="brand-statement3">I'm becoming very experienced in web development technologies like HTML, CSS, Bootstrap and JavaScript and I'm really excited to learn more over time. I want to be able to integrate my knowledge of social and business psychology to create and improve digital technologies in ways that are both meaningful and memorable.</p>
 			</div>
 		</div>
-		<div class="row no-gutters">
-			<div class="col-12">
-				<h3>Skills:</h3>
+		<div class="row no-gutters justify-content-center" id="portfolio-skills-row">
+			<div class="col-9">
+				<h3>Skills</h3>
+			</div>
+			<div class="w-100"></div>
+			<div class="col-3 border border-dark">
+				<p><strong>Technical Languages:</strong></p>
 				<ul>
-					<strong>Technical Languages:</strong>
+					<strong style="display: none;">Technical Languages:</strong>
 					<% portfolio.forEach((item, i) => { %>
 						<% for (a = 0; a < item.technicalLanguages.length; a++) { %>
 							<li><%= item.technicalLanguages[a] %></li>
 						<% } %>
 					<% }) %>
-					<br>
-					<strong>Technical Skills:</strong>
+				</ul>
+			</div>
+			<div class="col-3" style="background-color: unset;"></div>
+			<div class="col-3 border border-dark">
+				<p><strong>Technical Skills:</strong></p>
+				<ul>
+					<strong style="display: none;">Technical Skills:</strong>
 					<% portfolio.forEach((item, i) => { %>
 						<% for (b = 0; b < item.webDevelopmentSkills.length; b++) { %>
 							<li><%= item.webDevelopmentSkills[b] %></li>
 						<% } %>
 					<% }) %>
-					<br>
 				</ul>
 			</div>
 		</div>
-		<div class="row no-gutters">
-			<div class="col-12">
-				<h3>Projects:</h3>
-				<ul>
+		<div class="row no-gutters" id="portfolio-projects-row">
+			<div class="col-sm"></div>
+			<div class="col-10">
+				<h3>Projects</h3>
+				<dl>
 					<% portfolio.forEach((item, i) => { %>
 						<% for (c = 0; c < item.projects.length; c++) { %>
-							<li>
-								<%= item.projects[c].projectName %><br>
-								<%= item.projects[c].summary %><br>
-								<p>Technologies Used:</p>
-								<% for (d = 0; d < item.projects[c].technologies.length; d++) { %>
-									<span><%= item.projects[c].technologies[d] %></span><br>
-								<% } %>
-							</li>
+						<div class="border border-dark bg-secondary text-white">
+							<div>
+								<dt><%= item.projects[c].projectName %></dt>
+								<dd><%= item.projects[c].summary %></dd>
+							</div>
+							<div>
+								<dt>Technologies Used:</dt>
+								<dd>
+									<% for (d = 0; d < item.projects[c].technologies.length; d++) { %>
+										<% if (d < item.projects[c].technologies.length - 1) { %>
+											<span><%= item.projects[c].technologies[d] + ',' %></span>
+										<% } else { %>
+											<span><%= item.projects[c].technologies[d] %></span>
+										<% } %>
+									<% } %>
+								</dd>
+							</div>
+						</div>
 							<br>
 						<% } %>
 					<% }) %>
-				</ul>
+				</dl>
+			</div>
+			<div class="col-sm"></div>
+		</div>
+	</div>
+
+	<div class="container-fluid" id="navbar-space">
+		<div class="row no-gutters align-items-center" id="empty-navbar-row">
+			<div class="col-12 fixed-bottom" id="empty-navbar-div">
+				
 			</div>
 		</div>
 	</div>
 
+	<nav class="navbar fixed-bottom navbar-expand navbar-dark bg-dark">
+		<span class="navbar-brand mb-0 h1">DSS</span>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarCollapse">
+			<div class="navbar-nav">
+				<a class="nav-item nav-link active" href="/portfolio">Home <span class="sr-only">(current)</span></a>
+				<a class="nav-item nav-link" href="">About</a>
+				<a class="nav-item nav-link" href="">Skills</a>
+				<a class="nav-item nav-link" href="">Projects</a>
+			</div>
+		</div>
+	</nav>
 
+
+
+	<!-- SCRIPTS FOR MBD (remove when not using MDB) -->
+	<!-- JQuery -->
+	<script type="text/javascript" src="/javascripts/jquery-3.2.1.min.js"></script>
+	<!-- Bootstrap tooltips -->
+	<script type="text/javascript" src="/javascripts/popper.min.js"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
+	<!-- MDB core JavaScript -->
+	<script type="text/javascript" src="/javascripts/mdb.min.js"></script>
+
+
+
+	<!-- Custom JavaScript file (optional for MDB) -->
 	<script src="/javascripts/app.js"></script>
 </body>
 </html>

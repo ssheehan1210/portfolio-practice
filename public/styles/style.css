@@ -1,7 +1,52 @@
 body {
+  background-color: grey;
+}
+#portfolio-header-row {
   background-color: blue;
   color: white;
 }
-.col-10 {
+#header-name-column {
   text-align: center;
+}
+#portfolio-statement-row {
+  background-color: gold;
+  color: black;
+}
+#portfolio-skills-row {
+  background-color: green;
+  color: white;
+}
+#portfolio-projects-row {
+  background-color: red;
+  color: white;
+}
+#navbar-space {
+  height: 56px;
+}
+#empty-navbar-row {
+  padding: 0;
+}
+#empty-navbar-div {
+  height: 56px;
+}
+#portfolio-skills-row .col-3 {
+  background-color: grey;
+  margin-bottom: 1rem;
+}
+#portfolio-statement-row div h3 {
+  text-align: center;
+}
+#portfolio-skills-row div h3 {
+  text-align: center;
+}
+#portfolio-skills-row div p {
+  text-align: center;
+  margin-bottom: 0;
+}
+#portfolio-projects-row div h3 {
+  text-align: center;
+}
+#portfolio-projects-row div dl div {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }

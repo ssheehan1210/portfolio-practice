@@ -24,19 +24,19 @@ const portfolios = [{
 		}
 	],
 	technicalLanguages: ['HTML', 'CSS', 'JavaScript', 'Ruby', 'AJAX / JSON'],
-	webDevelopmentSkills: ['Bootstrap', 'Git/GitHub', 'MongoDB / Mongoose', 'Express', 'React.JS', 'Angular', 'Sinatra'],
+	webDevelopmentSkills: ['Bootstrap', 'Git/GitHub', 'MongoDB / Mongoose', 'Express', 'React.js', 'Angular', 'Sinatra'],
 	projects: [
 		{
 			projectName: 'Character Info Sheet Manager',
 			image: '#',
 			summary: 'Place summary here...',
-			technologies: ['HTML5', 'CSS', 'JavaScript', 'Bootstrap', 'React.JS', 'Ruby', 'Sinatra', 'JSON']
+			technologies: ['HTML5', 'CSS', 'JavaScript', 'Bootstrap', 'React.js', 'Ruby', 'Sinatra', 'JSON']
 		},
 		{
 			projectName: '(Unofficial) Disney Vault Database',
 			image: '#',
 			summary: 'This is where the brief summary will go...',
-			technologies: ['HTML5', 'CSS / LESS', 'JavaScript / jQuery', 'Bootstrap', 'MongoDB / Mongoose', 'Node.JS / Express', 'AJAX / JSON']
+			technologies: ['HTML5', 'CSS / LESS', 'JavaScript / jQuery', 'Bootstrap', 'MongoDB / Mongoose', 'Node.js / Express', 'AJAX / JSON']
 		},
 		{
 			projectName: 'Pop-Culture Jeopardy',
