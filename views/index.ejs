@@ -23,16 +23,26 @@
 	<link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
+	<div class="container-fluid" id="navbar-space">
+		<div class="row no-gutters align-items-center" id="empty-navbar-row">
+			<div class="col-12 fixed-bottom" id="empty-navbar-div">
+				
+			</div>
+		</div>
+	</div>
 	<div class="container-fluid">
 		<div class="row no-gutters justify-content-center" id="portfolio-header-row">
 			<div class="col-sm">
 				
 			</div>
 			<div class="col-8" id="header-name-column">
-				<h1>Dennis "Sam" Sheehan</h1>
+				<h1>Sam Sheehan</h1>
 				<% portfolio.forEach((item, i) => { %>
 					<h5><%=item.fullName%></h5>
-					<% if (item.currentJob === true) { %>
+					<% if (item.latestJob.currentJob === true) { %>
+						<h5><%= item.latestJob.role %></h5>
+						<h5>Currently Working at <%= item.latestJob.company %></h5>
+					<% } else { %>
 						<h5><%= item.latestJob.role %></h5>
 					<% } %>
 				<% }) %>
@@ -42,27 +52,26 @@
 			</div>
 		</div>
 		<div class="row no-gutters justify-content-center" id="portfolio-statement-row">
-			<div class="col-10">
+			<div class="col-10 animated jello">
 				<h3>About Me</h3>
 			</div>
 			<div class="w-100"></div>
-			<div class="col-10">
+			<div class="col-10 animated jello">
 				<p id="brand-statement1">I am absolutely obsessed and passionate about the digial space and am particularly interested in the development and advancement of interactive and client-facing technologies.</p>
 
-				<p id="brand-statement2">I worked as a sourcing specialist at a digital consultancy firm that worked with various Cloud-based technologies and have a Master's degree in Business Psychology. However, I realized that being a recruiter wasn't something I could truly feel passionate about, so I decided to change my career towards becoming a web and software developer in the digital space, which is something I've been interested in throughout my entire life.</p>
+				<p id="brand-statement2">I originally got exposed to the digital space through my last job as a sourcing specialist at a digital consultancy firm that worked with various Cloud-based technologies. After over two years working there, I became more and more interested in the technical applications my web developer colleagues were creating. They would develop deeply interactive software apps and incredibly responsive websites that would leave lasting impacts to their users. After a bit of soul searching and trying out some basic front-end coding technologies, I realized that becoming a web developer was something that I felt I could confidently become skilled and passionate about and decided to make a career change through General Assembly’s Web Development Immersive program.</p>
 
-				<p id="brand-statement3">I'm becoming very experienced in web development technologies like HTML, CSS, Bootstrap and JavaScript and I'm really excited to learn more over time. I want to be able to integrate my knowledge of social and business psychology to create and improve digital technologies in ways that are both meaningful and memorable.</p>
+				<p id="brand-statement3">I'm very experienced in web development technologies like HTML5, CSS, Bootstrap, JavaScript/jQuery and React.js, and I have a decent amount of experience with the fundamentals of Ruby, Rails and Sinatra. I’m all the more excited for what my future holds for me, as I can now apply my years of experience and deep understanding of social and business psychology into how I plan, approach and ultimately solve whatever technical challenges I undertake.</p>
 			</div>
 		</div>
 		<div class="row no-gutters justify-content-center" id="portfolio-skills-row">
 			<div class="col-9">
-				<h3>Skills</h3>
+				<h3 class="animated pulse">Skills</h3>
 			</div>
 			<div class="w-100"></div>
-			<div class="col-3 border border-dark">
+			<div class="col-3 border border-dark wow rotateIn">
 				<p><strong>Technical Languages:</strong></p>
 				<ul>
-					<strong style="display: none;">Technical Languages:</strong>
 					<% portfolio.forEach((item, i) => { %>
 						<% for (a = 0; a < item.technicalLanguages.length; a++) { %>
 							<li><%= item.technicalLanguages[a] %></li>
@@ -70,11 +79,10 @@
 					<% }) %>
 				</ul>
 			</div>
-			<div class="col-3" style="background-color: unset;"></div>
-			<div class="col-3 border border-dark">
+			<div class="col-3 wow rotateIn" style="background-color: unset;"></div>
+			<div class="col-3 border border-dark wow rotateIn">
 				<p><strong>Technical Skills:</strong></p>
 				<ul>
-					<strong style="display: none;">Technical Skills:</strong>
 					<% portfolio.forEach((item, i) => { %>
 						<% for (b = 0; b < item.webDevelopmentSkills.length; b++) { %>
 							<li><%= item.webDevelopmentSkills[b] %></li>
@@ -86,26 +94,35 @@
 		<div class="row no-gutters" id="portfolio-projects-row">
 			<div class="col-sm"></div>
 			<div class="col-10">
-				<h3>Projects</h3>
+				<h3 class="animated pulse">Projects</h3>
 				<dl>
 					<% portfolio.forEach((item, i) => { %>
 						<% for (c = 0; c < item.projects.length; c++) { %>
-						<div class="border border-dark bg-secondary text-white">
-							<div>
-								<dt><%= item.projects[c].projectName %></dt>
-								<dd><%= item.projects[c].summary %></dd>
+						<div class="row border border-dark bg-secondary text-white wow fadeInUp">
+							<div class="col-6">
+								<img src=<%="img/project_screenshots/" + item.projects[c].image %> class="img-fluid" alt="Responsive image" >
 							</div>
-							<div>
-								<dt>Technologies Used:</dt>
-								<dd>
-									<% for (d = 0; d < item.projects[c].technologies.length; d++) { %>
-										<% if (d < item.projects[c].technologies.length - 1) { %>
-											<span><%= item.projects[c].technologies[d] + ',' %></span>
-										<% } else { %>
-											<span><%= item.projects[c].technologies[d] %></span>
+							<div class="col-6" id=<%="project" + (c + 1)%> >
+								<div>
+									<dt><%= item.projects[c].projectName %></dt>
+									<dd><%= item.projects[c].summary %></dd>
+								</div>
+								<div>
+									<dt>Project Link:</dt>
+									<dd><a href=<%=item.projects[c].link%> style="color: white; text-decoration: underline;">GitHub</a></dd>
+								</div>
+								<div>
+									<dt>Technologies Used:</dt>
+									<dd>
+										<% for (d = 0; d < item.projects[c].technologies.length; d++) { %>
+											<% if (d < item.projects[c].technologies.length - 1) { %>
+												<span><%= item.projects[c].technologies[d] + ',' %></span>
+											<% } else { %>
+												<span><%= item.projects[c].technologies[d] %></span>
+											<% } %>
 										<% } %>
-									<% } %>
-								</dd>
+									</dd>
+								</div>
 							</div>
 						</div>
 							<br>
@@ -117,7 +134,7 @@
 		</div>
 	</div>
 
-	<div class="container-fluid" id="navbar-space">
+	<div class="container-fluid" id="navbar-space" style="display: none;">
 		<div class="row no-gutters align-items-center" id="empty-navbar-row">
 			<div class="col-12 fixed-bottom" id="empty-navbar-div">
 				
@@ -125,19 +142,31 @@
 		</div>
 	</div>
 
-	<nav class="navbar fixed-bottom navbar-expand navbar-dark bg-dark">
-		<span class="navbar-brand mb-0 h1">DSS</span>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarCollapse">
-			<div class="navbar-nav">
-				<a class="nav-item nav-link active" href="/portfolio">Home <span class="sr-only">(current)</span></a>
-				<a class="nav-item nav-link" href="">About</a>
-				<a class="nav-item nav-link" href="">Skills</a>
-				<a class="nav-item nav-link" href="">Projects</a>
+	<nav class="navbar fixed-top navbar-expand navbar-dark bg-dark">
+			<span class="navbar-brand mb-0 h1" style="display: none;">DSS</span>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
+				<div class="navbar-nav mx-auto">
+					<a class="nav-item nav-link active" href="/portfolio" style="padding-right: 2rem; padding-left: 2rem;">Home <span class="sr-only">(current)</span></a>
+					<a class="nav-item nav-link" href="#portfolio-statement-row" style="padding-right: 2rem; padding-left: 2rem;">About</a>
+					<a class="nav-item nav-link" href="#portfolio-skills-row" style="padding-right: 2rem; padding-left: 2rem;">Skills</a>
+					<a class="nav-item nav-link" href="#portfolio-projects-row" style="padding-right: 2rem; padding-left: 2rem;">Projects</a>
+					<!-- <a class="nav-item nav-link" href="" style="padding-right: 2rem; padding-left: 2rem;">Contact</a> -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding-right: 2rem; padding-left: 2rem;">
+							Contact
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="https://www.linkedin.com/in/samsheehan/">LinkedIn</a>
+							<a class="dropdown-item" href="https://github.com/ssheehan1210">GitHub</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="mailto:ssheehan1210.yahoo.com">Email</a>
+						</div>
+					</li>
+				</div>
 			</div>
-		</div>
 	</nav>
 
 
@@ -155,6 +184,6 @@
 
 
 	<!-- Custom JavaScript file (optional for MDB) -->
-	<script src="/javascripts/app.js"></script>
+	<script type="text/javascript" src="/javascripts/app.js"></script>
 </body>
 </html>
