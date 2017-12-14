@@ -56,7 +56,12 @@
 				<h3>About Me</h3>
 			</div>
 			<div class="w-100"></div>
-			<div class="col-10 animated jello">
+			<div class="col-5 d-flex justify-content-center align-items-center animated jello">
+			<% portfolio.forEach((item, i) => { %>
+				<img id="portfolio-picture" src=<%="img/project_screenshots/" + "samimage_facebook.jpg"%> class="d-flex" alt="Portfolio Image of Sam">
+			<% }) %>
+			</div>
+			<div class="col-5 animated jello">
 				<p id="brand-statement1">I am absolutely obsessed and passionate about the digial space and am particularly interested in the development and advancement of interactive and client-facing technologies.</p>
 
 				<p id="brand-statement2">I originally got exposed to the digital space through my last job as a sourcing specialist at a digital consultancy firm that worked with various Cloud-based technologies. After over two years working there, I became more and more interested in the technical applications my web developer colleagues were creating. They would develop deeply interactive software apps and incredibly responsive websites that would leave lasting impacts to their users. After a bit of soul searching and trying out some basic front-end coding technologies, I realized that becoming a web developer was something that I felt I could confidently become skilled and passionate about and decided to make a career change through General Assembly’s Web Development Immersive program.</p>
